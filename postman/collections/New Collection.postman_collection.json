@@ -15,28 +15,16 @@
       "name": "Dashboard",
       "item": [],
       "id": "ce2fb7ed-1dae-4a22-8a67-de8afa20ff0f"
-    },
-    {
-      "name": "New Request",
-      "id": "f7f1cabc-9912-4148-a5ad-338e71e8906c",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": ""
-        }
-      },
-      "response": []
     }
   ],
   "variable": [
     {
-      "id": "80825993-ebad-49f8-aac2-9e0043a4273c",
+      "id": "81a91f24-727f-4d68-b7eb-7dd8913c1d5e",
       "key": "base_url",
       "value": ""
     },
     {
-      "id": "ad95a8e3-19bf-4599-a1ca-6d0ce9b5d82d",
+      "id": "d93a2fba-f93d-49d8-a711-586f4344263c",
       "key": "token",
       "value": ""
     }
