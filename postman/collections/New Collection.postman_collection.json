@@ -1,0 +1,44 @@
+{
+  "info": {
+    "_postman_id": "372f3518-72f9-4841-ac7b-5fb0d9554d77",
+    "name": "Budget-Buddy API",
+    "description": "A Budget Buddy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [],
+      "id": "5b78d1ec-5fef-4316-9707-cb85279b4948"
+    },
+    {
+      "name": "Dashboard",
+      "item": [],
+      "id": "ce2fb7ed-1dae-4a22-8a67-de8afa20ff0f"
+    },
+    {
+      "name": "New Request",
+      "id": "f7f1cabc-9912-4148-a5ad-338e71e8906c",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "80825993-ebad-49f8-aac2-9e0043a4273c",
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "id": "ad95a8e3-19bf-4599-a1ca-6d0ce9b5d82d",
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
