@@ -7,15 +7,15 @@
 
             <div class="auth-form-side">
                 <a href="/" class="logo" style="text-decoration: none;">Budget Buddy</a>
-                <h2 style="margin-top: 10px;">Verify Your Email</h2>
+                <h2 style="margin-top: 10px;">{{ __('auth.verify_heading') }}</h2>
                 
                 <div class="mb-4 text-sm" style="color: #666; margin: 20px 0;">
-                    {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you?') }}
+                    {{ __('auth.verify_message') }}
                 </div>
 
                 @if (session('status') == 'verification-link-sent')
                     <div class="mb-4 font-medium text-sm" style="color: var(--success); margin-bottom: 20px;">
-                        {{ __('A new verification link has been sent to your email address.') }}
+                        {{ __('auth.verify_link_sent') }}
                     </div>
                 @endif
 
@@ -23,7 +23,7 @@
                     <form method="POST" action="{{ route('verification.send') }}">
                         @csrf
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            {{ __('Resend Verification Email') }}
+                            {{ __('auth.resend_button') }}
                         </button>
                     </form>
 
