@@ -1,0 +1,86 @@
+{
+  "info": {
+    "_postman_id": "0d88db17-ca92-4da7-bbf2-97a980346d57",
+    "name": "BudgetBuddy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "http://127.0.0.1:8000/register",
+      "id": "2783f63e-d519-4965-8a23-e711421b7966",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text",
+            "uuid": "d99b8a1a-05b9-4765-bc55-652db7e1683e"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "firstName",
+              "value": "Alex",
+              "type": "text",
+              "uuid": "77d69363-86da-441d-9e8b-140c4adbfe0d"
+            },
+            {
+              "key": "lastName",
+              "value": "Buddy",
+              "type": "text",
+              "uuid": "9174a0b9-7fbe-4de6-9ea3-0d7bf8ee6093"
+            },
+            {
+              "key": "email",
+              "value": "alex@test.com",
+              "type": "text",
+              "uuid": "e7475bb0-f049-4336-83e7-7232bd13d9b2"
+            },
+            {
+              "key": "password",
+              "value": "password123",
+              "type": "text",
+              "uuid": "ac82db6c-9b95-4631-92c2-b49c97143e1f"
+            },
+            {
+              "key": "password_confirmation",
+              "value": "password123",
+              "type": "text",
+              "uuid": "529a54b3-f000-4f50-82a2-4a37be71f742"
+            },
+            {
+              "key": "phone",
+              "value": "0712345678",
+              "type": "text",
+              "uuid": "6b26adc0-3d7a-4a40-bdf9-080d6a1e4844"
+            }
+          ],
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/register",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "register"
+          ]
+        },
+        "description": "BudgetBuddy API "
+      },
+      "response": []
+    }
+  ]
+}
