@@ -1,15 +1,15 @@
 <x-guest-layout>
-    <link rel="stylesheet" href="{{ asset('public/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <div class="auth-page">
         <div class="auth-container">
             <div class="auth-image-side"></div>
 
             <div class="auth-form-side">
-                <h1 class="logo">Budget Buddy</h1>
-                <h2>Verify Your Email</h2>
+                <a href="/" class="logo" style="text-decoration: none;">Budget Buddy</a>
+                <h2 style="margin-top: 10px;">Verify Your Email</h2>
                 
-                <div class="mb-4 text-sm" style="color: #666; margin-bottom: 20px;">
+                <div class="mb-4 text-sm" style="color: #666; margin: 20px 0;">
                     {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you?') }}
                 </div>
 
@@ -30,7 +30,7 @@
                     <div style="margin-top: 20px; text-align: center;">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="underline text-sm" style="background: none; border: none; color: var(--primary-color); cursor: pointer; text-decoration: underline;">
+                            <button type="submit" style="background: none; border: none; color: var(--primary-color); cursor: pointer; text-decoration: underline; font-size: 0.9rem;">
                                 {{ __('Log Out') }}
                             </button>
                         </form>
