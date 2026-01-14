@@ -5,29 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Budget Buddy') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        <!-- Scripts -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    <body class="dashboard-page">
+        <div class="min-h-screen">
+            <header class="header dashboard-header">
+                <div class="container">
+                    <a href="{{ route('dashboard') }}" class="logo">Budget Buddy</a>
+                    
+                    <nav class="main-nav">
+                        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
+                        <a href="#">Transactions</a>
+                        <a href="#">Goals</a>
+                    </nav>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                    <div class="user-info" style="display: flex; align-items: center; gap: 15px;">
+                        <span>Welcome, <strong>{{ Auth::user()->name }}</strong></span>
+                        
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-small btn-secondary">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </form>
                     </div>
-                </header>
+                </div>
+            </header>
+
+            @isset($header)
+                <div class="container" style="margin-top: 20px;">
+                    {{ $header }}
+                </div>
             @endisset
 
-            <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
