@@ -5,7 +5,6 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
-
 // 1. Landing Page
 Route::get('/', function () {
     return view('welcome');

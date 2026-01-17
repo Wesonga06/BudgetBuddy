@@ -104,24 +104,27 @@ body {
 }
 
 .auth-image-side {
-    flex: 1;
-    background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80');
-    background-size: cover;
-    background-position: center;
-    position: relative;
+     width: 50%;
+     background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2071&auto=format&fit=crop');
+     background-size: cover;
+     background-position: center;
+     position: relative;
 }
-.auth-image-side::before {
-    content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
-    background: linear-gradient(135deg, rgba(26,115,232,0.6), rgba(0,151,167,0.6));
+.auth-image-side::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--overlay-blue);
 }
 
 .auth-form-side {
-    flex: 1.2;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
+    width: 50%; 
+    padding: 40px; 
+    display: flex; 
+    flex-direction: column; 
     justify-content: center;
-    overflow-y: auto; 
+    align-items: center;
+    background-color: #ffffff;
 }
 
 .auth-form-side h2 { margin-bottom: 10px; color: var(--dark-color); }
@@ -204,6 +207,7 @@ body {
 @media (max-width: 768px) {
     .auth-container { flex-direction: column; height: auto; border-radius: 0; }
     .auth-image-side { display: none; }
+    .auth-form-side { width: 100%; }
     .dashboard-main, .account-grid { grid-template-columns: 1fr; flex-direction: column; }
     .hero-section h2 { font-size: 2rem; }
     .row { flex-direction: column; gap: 0; }
