@@ -2,35 +2,34 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController; // Added
+use App\Http\Controllers\GoalController;        // Added
 use Illuminate\Support\Facades\Route;
-
 
 // 1. Landing Page
 Route::get('/', function () {
     return view('welcome');
 });
 
-// 2. Authenticated Routes Group (Requires Login & Email Verification)
+// 2. Authenticated Routes Group
 Route::middleware(['auth', 'verified'])->group(function () {
     
-    // Dashboard - Uses the Controller to calculate totals
+    // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Transactions Page - Currently just shows the view
-    Route::get('/transactions', function () {
-        return view('transactions');
-    })->name('transactions');
+    // Transactions (View Page & Save New Transaction)
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
+    Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
 
-    // Goals Page - Currently just shows the view
-    Route::get('/goals', function () {
-        return view('goals');
-    })->name('goals');
+    // Goals (View Page & Save New Goal)
+    Route::get('/goals', [GoalController::class, 'index'])->name('goals');
+    Route::post('/goals', [GoalController::class, 'store'])->name('goals.store');
 
-    // Profile Settings (Password, Name, Delete Account)
+    // Profile Settings
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// 3. Load Authentication Routes (Login, Register, Reset Password)
+// 3. Load Authentication Routes
 require __DIR__.'/auth.php';

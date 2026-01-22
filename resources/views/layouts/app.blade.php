@@ -25,6 +25,7 @@
                         <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
                         <a href="{{ route('transactions') }}" class="{{ request()->routeIs('transactions') ? 'active' : '' }}">Transactions</a>
                         <a href="{{ route('goals') }}" class="{{ request()->routeIs('goals') ? 'active' : '' }}">Goals</a>
+                        <a href="{{ route('profile.edit') }}" class="{{ request()->routeIs('profile.edit') ? 'active' : '' }}">Profile</a>
                     </nav>
 
                     <div class="user-info" style="display: flex; align-items: center; gap: 15px;">

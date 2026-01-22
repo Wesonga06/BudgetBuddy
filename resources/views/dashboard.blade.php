@@ -28,7 +28,7 @@
                 @endphp
                 <div class="goal-item" style="margin-bottom: 15px;">
                     <div style="display: flex; justify-content: space-between;">
-                        <span>{{ $goal->name }}</span>
+                        <span>{{ $goal->title }}</span>
                         <span>sh. {{ number_format($goal->current_amount) }} / {{ number_format($goal->target_amount) }}</span>
                     </div>
                     <div class="goal-progress-bg">
