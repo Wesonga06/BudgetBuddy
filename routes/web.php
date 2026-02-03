@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TransactionController; // Added
-use App\Http\Controllers\GoalController;        // Added
+use App\Http\Controllers\TransactionController; 
+use App\Http\Controllers\GoalController;        
 use Illuminate\Support\Facades\Route;
 
 // 1. Landing Page
@@ -14,26 +13,28 @@ Route::get('/', function () {
 // 2. Authenticated Routes Group
 Route::middleware(['auth', 'verified'])->group(function () {
     
-    // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // --- DASHBOARD ---
+    Route::get('/dashboard', [GoalController::class, 'index'])->name('dashboard');
 
-    // Transactions (View Page & Save New Transaction)
-    Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions');
+    // --- TRANSACTIONS ---
+    // The name MUST be 'transactions' to match your navigation bar
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions'); 
     Route::post('/transactions', [TransactionController::class, 'store'])->name('transactions.store');
 
-    // Goals (View Page & Save New Goal)
+    // --- GOALS ---
+    // The name MUST be 'goals' to match your navigation bar. 
+    // We point it to the dashboard view since that's where goals are displayed.
     Route::get('/goals', [GoalController::class, 'index'])->name('goals');
     Route::post('/goals', [GoalController::class, 'store'])->name('goals.store');
     
-    //Goals (Deposit $Withdraw)
+    // Goals Actions (Deposit & Withdraw)
     Route::post('/goals/{id}/deposit', [GoalController::class, 'deposit'])->name('goals.deposit');
     Route::post('/goals/{id}/withdraw', [GoalController::class, 'withdraw'])->name('goals.withdraw');
 
-    // Profile Settings
+    // --- PROFILE ---
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// 3. Load Authentication Routes
 require __DIR__.'/auth.php';

@@ -13,8 +13,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->decimal('amount', 15, 2);
             $table->string('type'); // 'income' or 'expense'
-            $table->string('source'); // 'mpesa' or 'bank'
-            $table->string('description')->nullable();
+            $table->string('source')->nullable(); // 'mpesa' or 'bank'
+            $table->string('description');
+            $table->date('date');
             $table->timestamps();
         });
     }
