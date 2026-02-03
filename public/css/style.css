@@ -95,8 +95,8 @@ body {
 .auth-container {
     display: flex; 
     width: 100%;
-    max-width: 900px;
-    min-height: 600px; 
+    max-width: 1100px;
+    height: 650px; 
     background: var(--white);
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.2);
@@ -104,27 +104,37 @@ body {
 }
 
 .auth-image-side {
-     width: 50%;
+    flex: 1;
+     width: 45%;
      background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2071&auto=format&fit=crop');
      background-size: cover;
      background-position: center;
      position: relative;
 }
-.auth-image-side::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--overlay-blue);
+
+
+.auth-image-side::before {
+    content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
+    background: linear-gradient(135deg, rgba(26,115,232,0.6), rgba(0,151,167,0.6));
 }
 
 .auth-form-side {
-    width: 50%; 
-    padding: 40px; 
-    display: flex; 
-    flex-direction: column; 
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
+    background-color: var(--white);
+}
+
+.auth-form{
+    width: 100%;
+}
+
+.auth-form-side h2,
+.auth-form-side p,
+.auth-form-side .logo {
+    text-align: center;
 }
 /* Progress Bar Styles */
 .goal-progress-bg {

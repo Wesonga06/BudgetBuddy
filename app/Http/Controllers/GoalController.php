@@ -30,4 +30,31 @@ class GoalController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'New savings goal set!');
     }
+
+    public function deposit(Request $request, $id)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:1',
+        ]);
+
+        $goal = Goal::where('user_id', Auth::id())->findOrFail($id);
+        $goal->current_amount += $request->amount;
+        $goal->save();
+
+        return back()->with('success', 'Amount deposited successfully!');
+    }
+
+    public function withdraw($id)
+    { 
+        $goal = Goal::where('id', $id)->where('user_id', Auth::id())->findOrFail($id);
+
+        if ($goal->current_amount < $goal->target_amount) {
+            return back()->withErrors(['amount' => 'You cannot withdraw until you reach your target amount.']);
+        }
+
+        $goal->current_amount = 0;
+        $goal->save();
+
+        return back()->with('success', 'Congratulations! You have reached your savings goal and can now withdraw.');
+    }
 }

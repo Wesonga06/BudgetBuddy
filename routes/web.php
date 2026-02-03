@@ -24,6 +24,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Goals (View Page & Save New Goal)
     Route::get('/goals', [GoalController::class, 'index'])->name('goals');
     Route::post('/goals', [GoalController::class, 'store'])->name('goals.store');
+    
+    //Goals (Deposit $Withdraw)
+    Route::post('/goals/{id}/deposit', [GoalController::class, 'deposit'])->name('goals.deposit');
+    Route::post('/goals/{id}/withdraw', [GoalController::class, 'withdraw'])->name('goals.withdraw');
 
     // Profile Settings
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
