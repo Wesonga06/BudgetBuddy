@@ -28,8 +28,7 @@ class WalletController extends Controller
             'amount' => $userAmount,
             'account_reference' => 'BudgetBuddy',
             'transaction_desc' => 'Wallet Top Up',
-            // If you have user login set up, use auth()->id(), otherwise default to 1
-            'user_id' => auth()->id() ?? 1 
+            
         ]);
 
         if ($response->successful()) {
