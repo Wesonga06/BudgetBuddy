@@ -20,6 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('phone')->nullable()->unique();
             $table->decimal('mpesa_balance', 15, 2)->default(0);
             $table->decimal('bank_balance', 15, 2)->default(0);
             $table->timestamps();

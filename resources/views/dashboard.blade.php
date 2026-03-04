@@ -24,6 +24,7 @@
                     <p>MPESA</p>
                     <h4 style="font-size: 1.2rem; margin: 5px 0;">sh. {{ number_format($mpesaBalance, 2) }}</h4>
                     <span class="status connected">Active</span>
+                    
                 </div>
 
                 <div class="account-card bank">
